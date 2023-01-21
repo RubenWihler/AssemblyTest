@@ -1,0 +1,36 @@
+3 sections : 
+    - .text
+    - .data
+    - .bss
+
+    .text :
+        - le code 
+
+    .data : 
+        - declarer des constantes
+
+    .bss(block starting symbol) : 
+        - declarer des variables
+
+
+
+Divers:
+    int 0x80 --> 
+        int = interruption : une interruption transfere le flux du program a celui qui gere cette interuption (qui ducoup est 0x80 ici) 
+        0x80 = le code de l'interuption (sous linux 0x80 = kernel et utiliser pour des appels systems)
+
+    db --> define bytes
+
+    0xa (ou 10) --> nouvelle ligne(comme '\n')
+
+
+Assebler de code avec (nasm et ld): 
+
+    Creer le fichier object (.o) :
+        nasm -f elf64 -o nom_du_fichier.o nom_du_fichier_source.asm
+            ^   ^
+        format |
+                elf64[linux proceceurs 64bytes]
+    
+    Linker le fichier objet dans un executable :
+        ld nom_du_fichier.o -o nom_de_l_executable
